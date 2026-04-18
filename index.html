@@ -36,10 +36,21 @@
             <a href="#">About</a>
             <a href="#contact" class="btn-nav">Let's Talk</a>
         </div>
-        <div class="menu-toggle">
+        <div class="menu-toggle" id="menu-toggle">
             <i class="fas fa-bars"></i>
         </div>
     </nav>
+
+    <!-- Mobile Menu Drawer -->
+    <div class="mobile-menu" id="mobile-menu">
+        <button class="mobile-menu-close" id="mobile-menu-close">
+            <i class="fas fa-times"></i>
+        </button>
+        <a href="#services" class="mobile-nav-link">Services</a>
+        <a href="#projects" class="mobile-nav-link">Work</a>
+        <a href="#" class="mobile-nav-link">About</a>
+        <a href="#contact" class="mobile-nav-link">Let's Talk</a>
+    </div>
 
     <!-- Hero Section -->
     <header class="hero">
@@ -85,7 +96,6 @@
         </div>
 
         <div class="accordion-container">
-            <!-- Service 1 -->
             <div class="accordion-item active">
                 <div class="accordion-header">
                     <span class="num">01</span>
@@ -103,7 +113,6 @@
                 </div>
             </div>
 
-            <!-- Service 2 -->
             <div class="accordion-item">
                 <div class="accordion-header">
                     <span class="num">02</span>
@@ -121,7 +130,6 @@
                 </div>
             </div>
 
-            <!-- Service 3 -->
             <div class="accordion-item">
                 <div class="accordion-header">
                     <span class="num">03</span>
@@ -134,7 +142,6 @@
                 </div>
             </div>
 
-            <!-- Service 4 -->
             <div class="accordion-item">
                 <div class="accordion-header">
                     <span class="num">04</span>
@@ -196,11 +203,10 @@
                 </div>
                 <div class="project-info">
                     <h4>Business Center Setup</h4>
-                    <p> Implementation</p>
+                    <p>Implementation</p>
                     <a href="#" class="btn-link">View Case <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
-
 
             <div class="project-card">
                 <div class="project-img">
@@ -212,9 +218,10 @@
                     <a href="#" class="btn-link">View Case <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
+
             <div class="project-card">
                 <div class="project-img">
-                    <img src="postive.jpg" alt="Business Center">
+                    <img src="postive.jpg" alt="Ps4 Wellbeing">
                 </div>
                 <div class="project-info">
                     <h4>Ps4-Wellbeing</h4>
@@ -222,10 +229,7 @@
                     <a href="#" class="btn-link">View Case <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
-
         </div>
-
-
     </section>
 
     <!-- Testimonials Section -->
@@ -322,7 +326,7 @@
                 </div>
                 <div class="socials">
                     <a href="https://github.com/muhammadnajiac04"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/muhammed-naji-ac/" target="main"><i
+                    <a href="https://www.linkedin.com/in/muhammed-naji-ac/" target="_blank"><i
                             class="fab fa-linkedin"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
                 </div>
@@ -341,10 +345,6 @@
                         <label>Email</label>
                         <input type="email" name="entry.54854157" placeholder="Enter your email" required>
                     </div>
-                    <!--<div class="form-group">
-                        <label>Mobile Number</label>
-                        <input type="number" name="entry.1800551330" placeholder="Your Mobile Number">
-                    </div>-->
                     <div class="form-group">
                         <label>Subject</label>
                         <input type="text" name="entry.1125720536" placeholder="Project Subject" required>
@@ -377,6 +377,5 @@
 
     <script src="script.js"></script>
 </body>
-
 
 </html>

@@ -1,46 +1,62 @@
-// Accordion Logic
+// ── Accordion Logic ──
 const accordionItems = document.querySelectorAll('.accordion-item');
-
 accordionItems.forEach(item => {
     const header = item.querySelector('.accordion-header');
-
     header.addEventListener('click', () => {
-        // Close other items
         const currentlyActive = document.querySelector('.accordion-item.active');
         if (currentlyActive && currentlyActive !== item) {
             currentlyActive.classList.remove('active');
         }
-
-        // Toggle current
         item.classList.toggle('active');
     });
 });
 
-// Custom Cursor (optional simple follower)
+// ── Custom Cursor ──
 const cursor = document.querySelector('.cursor');
-
 document.addEventListener('mousemove', e => {
-    cursor.setAttribute("style", "top: " + (e.pageY - 10) + "px; left: " + (e.pageX - 10) + "px;")
-})
-
-// Navbar Scroll Effect
-window.addEventListener('scroll', () => {
-    const nav = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        nav.style.boxShadow = '0 10px 30px rgba(0,0,0,0.05)';
-    } else {
-        nav.style.boxShadow = 'none';
-    }
+    cursor.style.top = e.clientY + 'px';
+    cursor.style.left = e.clientX + 'px';
 });
 
-/* Handle Form Submission */
+// ── Navbar Scroll Effect ──
+window.addEventListener('scroll', () => {
+    const nav = document.querySelector('.navbar');
+    nav.style.boxShadow = window.scrollY > 50
+        ? '0 10px 30px rgba(0,0,0,0.05)'
+        : 'none';
+});
+
+// ── Mobile Menu ──
+const menuToggle = document.getElementById('menu-toggle');
+const mobileMenu = document.getElementById('mobile-menu');
+const mobileMenuClose = document.getElementById('mobile-menu-close');
+const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+function openMenu() {
+    mobileMenu.classList.add('open');
+    document.body.style.overflow = 'hidden'; // Prevent background scroll
+}
+
+function closeMenu() {
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+}
+
+if (menuToggle) menuToggle.addEventListener('click', openMenu);
+if (mobileMenuClose) mobileMenuClose.addEventListener('click', closeMenu);
+
+// Close menu when a nav link is tapped
+mobileNavLinks.forEach(link => {
+    link.addEventListener('click', closeMenu);
+});
+
+// ── Form Submission ──
 const form = document.querySelector('form');
 const modal = document.getElementById('success-modal');
 const closeModal = document.getElementById('close-modal');
 
 if (form) {
     form.addEventListener('submit', () => {
-        // Show modal after a small delay to ensure the request is sent to the iframe
         setTimeout(() => {
             modal.style.display = 'flex';
             form.reset();
@@ -51,14 +67,12 @@ if (form) {
 if (closeModal) {
     closeModal.addEventListener('click', () => {
         modal.style.display = 'none';
-        // Reload the page to clear any history/state if needed, or just stay
-        // window.location.reload(); 
     });
 }
 
-// Close modal when clicking outside
+// Close modal on backdrop click
 window.addEventListener('click', (e) => {
-    if (e.target == modal) {
+    if (e.target === modal) {
         modal.style.display = 'none';
     }
 });
